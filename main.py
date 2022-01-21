@@ -1,22 +1,20 @@
 import sys
 from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox, QLabel
+from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox
 from PyQt5.Qt import QFileSystemModel
 from PyQt5 import QtCore
 from PyQt5 import QtGui
 from PyQt5.QtCore import pyqtSlot
-#from widgets.canvas_widget import CanvasWidget
-#from config import get_config
-
-#from libs.version import __version__
+import cv2
 
 __appname__ = 'image viewer'
 
 #UI파일 연결
 form_class = uic.loadUiType("UI/image_viewer_main.ui")[0]
 
-#화면을 띄우는데 사용되는 Class 선언
+# 화면을 띄우는데 사용되는 Class 선언
 class MainWindow(QMainWindow, form_class):
+
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -38,10 +36,10 @@ class MainWindow(QMainWindow, form_class):
 
         self.treeView.setModel(self.model)
         self.treeView.setRootIndex(self.index_root)
-        self.treeView.clicked.connect(self.on_treeview_clicked)
+        self.treeView.clicked.connect(self.on_treeView_clicked)
 
     @pyqtSlot(QtCore.QModelIndex)
-    def on_treeview_clicked(self, index):
+    def on_treeView_clicked(self, index):
         index_item = self.model.index(index.row(), 0, index.parent())
 
         file_name = self.model.fileName(index_item)
@@ -52,8 +50,7 @@ class MainWindow(QMainWindow, form_class):
         pixmap = QtGui.QPixmap(file_path)
         w = self.label_img.width()
         h = self.label_img.height()
-        self.label_img.setPixmap(pixmap.scaled(w,h,QtCore.Qt.KeepAspectRatio))
-        #self.label_img.adjustSize()
+        self.label_img.setPixmap(pixmap.scaled(w, h, QtCore.Qt.KeepAspectRatio))
         self.show()
 
     def _setEvent(self):
@@ -63,6 +60,12 @@ class MainWindow(QMainWindow, form_class):
         '''
         self.action_exit.triggered.connect(self.exitAction)
         self.action_save.triggered.connect(self.saveAction)
+        self.checkBox_gray.stateChanged.connect(self.grayScaleAction)
+
+    def grayScaleAction(self):
+        print(self)
+        #self.gray = cv2.cvtColor()
+
 
     def exitAction(self):
         self.close()
