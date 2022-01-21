@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>609</width>
-    <height>534</height>
+    <width>975</width>
+    <height>529</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>251</width>
+      <width>341</width>
       <height>431</height>
      </rect>
     </property>
@@ -43,84 +43,13 @@
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>400</y>
-      <width>321</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <property name="spacing">
-      <number>0</number>
-     </property>
-     <item>
-      <widget class="QCheckBox" name="checkBox_2">
-       <property name="text">
-        <string> binary</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Minimum</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="text">
-        <string>threshold</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QSlider" name="horizontalSlider">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
-   <widget class="QWidget" name="horizontalLayoutWidget_2">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>370</y>
-      <width>321</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <layout class="QHBoxLayout" name="horizontalLayout_2">
-     <item>
-      <widget class="QCheckBox" name="checkBox">
-       <property name="text">
-        <string> gray scale</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
    <widget class="QFrame" name="frame">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>350</x>
       <y>0</y>
-      <width>341</width>
-      <height>361</height>
+      <width>401</width>
+      <height>431</height>
      </rect>
     </property>
     <property name="frameShape">
@@ -129,13 +58,13 @@
     <property name="frameShadow">
      <enum>QFrame::Raised</enum>
     </property>
-    <widget class="QLabel" name="label_2">
+    <widget class="QLabel" name="label_img">
      <property name="geometry">
       <rect>
-       <x>19</x>
-       <y>15</y>
-       <width>321</width>
-       <height>341</height>
+       <x>-1</x>
+       <y>5</y>
+       <width>401</width>
+       <height>431</height>
       </rect>
      </property>
      <property name="layoutDirection">
@@ -155,7 +84,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>609</width>
+     <width>975</width>
      <height>24</height>
     </rect>
    </property>
@@ -179,8 +108,96 @@
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
-   <addaction name="Save"/>
+   <addaction name="action_save"/>
    <addaction name="action_exit"/>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget_2">
+   <property name="minimumSize">
+    <size>
+     <width>220</width>
+     <height>421</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>524287</width>
+     <height>524287</height>
+    </size>
+   </property>
+   <property name="windowTitle">
+    <string>Image Processing</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2">
+    <widget class="QWidget" name="verticalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>10</y>
+       <width>201</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout_2">
+      <item>
+       <widget class="QCheckBox" name="checkBox">
+        <property name="minimumSize">
+         <size>
+          <width>300</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="text">
+         <string> gray scale</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="checkBox_2">
+        <property name="text">
+         <string> binary</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>threshold</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Maximum</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QSlider" name="horizontalSlider">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </widget>
   </widget>
   <action name="action_exit">
    <property name="icon">
@@ -194,7 +211,7 @@
     <string>Exit</string>
    </property>
   </action>
-  <action name="Save">
+  <action name="action_save">
    <property name="icon">
     <iconset resource="../res.qrc">
      <normaloff>:/toolbar/UI/icon/save.png</normaloff>:/toolbar/UI/icon/save.png</iconset>
